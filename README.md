@@ -8,5 +8,5 @@ Suppose you have installed sway for the first time, wouldn't it be helpful if yo
 
 Type this command in to your shell
 ```
-git clone https://github.com/gitrospective/swayyconfig ~/.config/sway
+git clone https://github.com/gitrospective/swayyconfig ~/.config/sway/
 ```
