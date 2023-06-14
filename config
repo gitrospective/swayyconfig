@@ -1,0 +1,161 @@
+set $mod Mod4  # This sets the "Super"/"Windows" key as the main mod key
+               # Mod1 refers to the Alt key
+
+##### WALLPAPER SETTING------------------------------------------------------------------------------------------
+
+exec --no-startup-id swaybg -i ~/wallpaper/redman.jpg #alternatively you can give the path to the directory which has the picture of your choice
+
+bindsym $mod+x kill
+
+##### WINDOW LAUNCHERS-------------------------------------------------------------------------------------------
+#launches Brave Browser
+bindsym Mod4+b exec brave #you can replace 'brave' with a browser of your choice
+#launches Terminator terminal
+bindsym Mod4+t exec terminator # replace terminator with a terminal of your choice
+#loads chatgpt
+bindsym $mod+c exec ~/.config/sway/Scripts/ChatGPT.sh
+
+##### SWAY Behaviour---------------------------------------------------------------------------------------------
+
+# Exiting SWAY
+bindsym $mod+End exec swaymsg exit
+# Reload Config
+bindsym $mod+Return exec swaymsg reload
+# Lock Sway
+bindsym $mod+l exec swaylock
+
+#enabled tap (this is to enable tap on your device) 
+# use the command swaymsg -t get_inputs to get the list of input devices, go to the section that refers to the touchpad and get the identifier
+# replace <identifier> witht the corresponding touchpad identifier
+input <identifier> {
+	tap enabled
+}
+
+exec --no-startup-id dunst &
+exec --no-startup-id ~/.config/sway/Scripts/battery.sh &
+
+#Toggle Media
+bindcode 231 exec ~/.config/sway/Scripts/toggle_play.sh
+
+#hotkey to decrease brightness
+bindsym XF86MonBrightnessDown exec ~/.config/sway/Scripts/brightness_decrease.sh
+#hotkey to increase brightness
+bindsym XF86MonBrightnessUp exec ~/.config/sway/Scripts/brightness_increase.sh
+
+#hotkeys to increase volume
+bindsym XF86AudioLowerVolume exec ~/.config/sway/Scripts/volume_decrease.sh
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/Scripts/volume_increase.sh
+
+#bar
+bar {
+	status_command i3status  #you can switch it with a bar of your choice
+}
+
+
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym i resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
