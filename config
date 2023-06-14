@@ -3,7 +3,7 @@ set $mod Mod4  # This sets the "Super"/"Windows" key as the main mod key
 
 ##### WALLPAPER SETTING------------------------------------------------------------------------------------------
 
-exec --no-startup-id swaybg -i ~/wallpaper/redman.jpg #alternatively you can give the path to the directory which has the picture of your choice
+exec --no-startup-id swaybg -i ~/.config/sway/wallpaper/redman.jpg #alternatively you can give the path to the directory which has the picture of your choice
 
 bindsym $mod+x kill
 
