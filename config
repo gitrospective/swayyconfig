@@ -5,9 +5,8 @@ set $mod Mod4  # This sets the "Super"/"Windows" key as the main mod key
 
 exec --no-startup-id swaybg -i ~/.config/sway/wallpaper/redman.jpg #alternatively you can give the path to the directory which has the picture of your choice
 
-bindsym $mod+x kill
-
 ##### WINDOW LAUNCHERS-------------------------------------------------------------------------------------------
+bindsym $mod+x kill
 #launches Brave Browser
 bindsym Mod4+b exec brave #you can replace 'brave' with a browser of your choice
 #launches Terminator terminal
@@ -26,13 +25,14 @@ bindsym $mod+l exec swaylock
 
 #enabled tap (this is to enable tap on your device) 
 # use the command swaymsg -t get_inputs to get the list of input devices, go to the section that refers to the touchpad and get the identifier
-# replace <identifier> witht the corresponding touchpad identifier
-input <identifier> {
-	tap enabled
-}
+# replace <identifier> witht the corresponding touchpad identifier and uncomment to enable tap click
+
+##input <identifier> {
+##	tap enabled
+##}
 
 exec --no-startup-id dunst &
-exec --no-startup-id ~/.config/sway/Scripts/battery.sh &
+exec --no-startup-id ~/.config/sway/Scripts/battery.sh & #press F11 without the Fn key
 
 #Toggle Media
 bindcode 231 exec ~/.config/sway/Scripts/toggle_play.sh
