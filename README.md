@@ -29,14 +29,28 @@ You can also use **bindcode** to achieve a similar functionality if you do not k
 ```
 bindcode 231 exec /path/to/file # this corresponds to the F11 key but without pressing the Fn key to execute the corresponding file.
 ```
+### The Config File
+The config file has two parts, the first part consists of custom changes that I have made to the sway config to get some helpful keybinds to get you started. The sessions consists of 
+1. Setting the Mod Key
+2. Setting the wallpaper
+3. Keybinds for launching certain windows
+4. Sway Behaviour : Session allows you to exit, reload and lock sway
+5. Enabling tap click (if you are using a touchpad). Uncomment this area if you are using touch click
+6. The next is to get your battery notifications running
+7. Toggle play media 
+8. Brighntess control scripts
+9. Audio control scripts
+
+The next session consists of the default i3 config that I have pasted on to the swayconfig to control standard window properties. Make sure you go through the code for details on how to switch workstations, resize windows, split windows and enter different layouts.
+
 ## Keycodes (X_86)
-bindcode 121 - F1(without Fn)
-bindcode 198 - F4(without Fn)
-bindcode 235 - F7(without Fn)
-bindcode 246 - F8(without Fn)
-bindcode 224 - F9(without Fn)
-bindcode 226 - F10(without Fn)
-bindcode 231 - F11(without Fn)
-bindcode 164 - F12(without Fn)
+bindcode 121 - F1(without Fn)\
+bindcode 198 - F4(without Fn)\
+bindcode 235 - F7(without Fn)\
+bindcode 246 - F8(without Fn)\
+bindcode 224 - F9(without Fn)\
+bindcode 226 - F10(without Fn)\
+bindcode 231 - F11(without Fn)\
+bindcode 164 - F12(without Fn)\
 
 rest can be found using tools like xev
